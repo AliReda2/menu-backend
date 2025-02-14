@@ -17,11 +17,24 @@ const app = express();
 // Middleware
 app.use(express.json());
 
-// Allow requests from the frontend domain
 const allowedOrigins = [
-  "https://menu-frontend-j2nij0k3n-alireda2s-projects.vercel.app",
+  "https://menu-frontend-j2nij0k3n-alireda2s-projects.vercel.app", // Your production frontend
+  "http://localhost:3000", // For local development, if needed
 ];
-app.use(cors({ origin: allowedOrigins }));
+
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      // Allow requests with no origin (like mobile apps or curl requests)
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.indexOf(origin) === -1) {
+        return callback(new Error("Not allowed by CORS"), false);
+      }
+      return callback(null, true);
+    },
+    credentials: true,
+  })
+);
 
 // Static file serving for uploaded images
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
