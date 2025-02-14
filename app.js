@@ -19,7 +19,8 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: "http://localhost:3000", // Update as per your frontend origin
+    origin:
+      "https://vercel.com/alireda2s-projects/menu-frontend/iYddx531VRg526zdDPD7TbPxGViA", // Update as per your frontend origin
     credentials: true,
   })
 );
