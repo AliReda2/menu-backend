@@ -2,7 +2,7 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../config/db");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 
 // GET /users - Get all users (optionally filtered by shop_id or role)
 router.get("/", (req, res) => {
