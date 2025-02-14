@@ -17,13 +17,12 @@ const app = express();
 // Middleware
 app.use(express.json());
 
-app.use(
-  cors({
-    origin:
-      "https://vercel.com/alireda2s-projects/menu-frontend/iYddx531VRg526zdDPD7TbPxGViA", // Update as per your frontend origin
-    credentials: true,
-  })
-);
+// Allow requests from the frontend domain
+const allowedOrigins = [
+  "https://menu-frontend-gabl77dno-alireda2s-projects.vercel.app",
+  "http://localhost:3000",
+];
+app.use(cors({ origin: allowedOrigins }));
 
 // Static file serving for uploaded images
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
