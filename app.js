@@ -19,8 +19,7 @@ app.use(express.json());
 
 // Allow requests from the frontend domain
 const allowedOrigins = [
-  "https://menu-frontend-gabl77dno-alireda2s-projects.vercel.app",
-  "http://localhost:3000",
+  "https://menu-frontend-d47kdxq34-alireda2s-projects.vercel.app",
 ];
 app.use(cors({ origin: allowedOrigins }));
 
