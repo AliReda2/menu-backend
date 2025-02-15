@@ -16,6 +16,9 @@ const app = express();
 
 // Middleware
 app.use(express.json());
+const interceptor = require("./middleware/interceptor");
+
+app.use(interceptor); // This will run the interceptor for every request
 
 const allowedOrigins = [
   // "https://menu-frontend-m3jd1zos4-alireda2s-projects.vercel.app", // Your production frontend
