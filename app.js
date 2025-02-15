@@ -24,7 +24,7 @@ app.use(interceptor); // This will run the interceptor for every request
 const allowedOrigins = [
   "https://menu-frontend-alireda2s-projects.vercel.app",
   "https://menu-frontend-psi.vercel.app",
-  "https://menu-frontend-alireda2-alireda2s-projects.vercel.app", // Add more domains if needed
+  "https://menu-frontend-git-main-alireda2s-projects.vercel.app", // Add more domains if needed
 ];
 
 const corsOptions = {
