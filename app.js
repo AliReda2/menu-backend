@@ -16,9 +16,7 @@ const app = express();
 
 // Middleware
 app.use(express.json());
-const interceptor = require("./middleware/interceptor");
 
-app.use(interceptor); // This will run the interceptor for every request
 
 // List allowed origins
 const allowedOrigins = [
