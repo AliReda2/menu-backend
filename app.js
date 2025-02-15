@@ -20,8 +20,6 @@ const interceptor = require("./middleware/interceptor");
 
 app.use(interceptor); // This will run the interceptor for every request
 
-const cors = require("cors");
-
 // List allowed origins
 const allowedOrigins = [
   "https://menu-frontend-alireda2s-projects.vercel.app",
