@@ -19,9 +19,9 @@ app.use(express.json());
 
 const allowedOrigins = [
   "https://menu-frontend-m3jd1zos4-alireda2s-projects.vercel.app", // Your production frontend
-  "http://https://menu-frontend-alireda2s-projects.vercel.app", // Domain 1
-  "http://https://https://menu-frontend-psi.vercel.app", // Domain 2
-  "http://menu-frontend-git-main-alireda2s-projects.vercel.app", // git branch
+  "https://menu-frontend-alireda2s-projects.vercel.app", // Domain 1
+  "https://menu-frontend-psi.vercel.app", // Domain 2
+  "https://menu-frontend-git-main-alireda2s-projects.vercel.app", // git branch
 ];
 
 app.use(
