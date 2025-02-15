@@ -20,26 +20,27 @@ const interceptor = require("./middleware/interceptor");
 
 app.use(interceptor); // This will run the interceptor for every request
 
+const cors = require("cors");
+
+// List allowed origins
 const allowedOrigins = [
-  // "https://menu-frontend-m3jd1zos4-alireda2s-projects.vercel.app", // Your production frontend
-  "https://menu-frontend-alireda2s-projects.vercel.app/", // Domain 1
-  "https://menu-frontend-psi.vercel.app/", // Domain 2
-  "https://menu-frontend-alireda2-alireda2s-projects.vercel.app/", // git branch
+  "https://menu-frontend-alireda2s-projects.vercel.app",
+  "https://menu-frontend-psi.vercel.app",
+  "https://menu-frontend-alireda2-alireda2s-projects.vercel.app", // Add more domains if needed
 ];
 
-app.use(
-  cors({
-    origin: function (origin, callback) {
-      // Allow requests with no origin (like mobile apps or curl requests)
-      if (!origin) return callback(null, true);
-      if (allowedOrigins.indexOf(origin) === -1) {
-        return callback(new Error("Not allowed by CORS"), false);
-      }
-      return callback(null, true);
-    },
-    credentials: true,
-  })
-);
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true, // Allow credentials (cookies, sessions)
+};
+
+app.use(cors(corsOptions)); // Apply CORS middleware to your app
 
 // Static file serving for uploaded images
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
